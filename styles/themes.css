@@ -4,3 +4,41 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+.theme-dark {
+  --themes-background: rgba(0, 0, 0, 1);
+  --themes-main-color: rgba(0, 204, 20, 1); /*акцентный*/
+  --heart-color: rgba(255, 0, 0, 1);
+  --background-image: url(../svg/pattern-dark.svg);
+  --font-family-accent: "PressStart2P";
+  --font-family-text: "Inter";
+  --font-weight-bold: 785;
+  --font-weight-normal: 465;
+  --adaptive-gap: 25px;
+}
+
+.theme-light {
+  --themes-background: rgba(255, 255, 255, 1);
+  --themes-main-color: rgba(0, 0, 0, 1); /*акцентный*/
+  --heart-color: rgba(255, 0, 0, 1);
+  --background-image: url(/svg/pattern-light.svg);
+  --font-family-accent: "PressStart2P";
+  --font-family-text: "Inter";
+  --font-weight-bold: 700;
+  --font-weight-normal: 400;
+  --adaptive-gap: 25px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --themes-background: rgba(0, 0, 0, 1);
+    --themes-main-color: rgba(0, 204, 20, 1); /*акцентный*/
+    --heart-color: rgba(255, 0, 0, 1);
+    --background-image: url(../svg/pattern-dark.svg);
+    --font-family-accent: "PressStart2P";
+    --font-family-text: "Inter";
+    --font-weight-bold: 785;
+    --font-weight-normal: 465;
+    --adaptive-gap: 25px;
+  }
+}

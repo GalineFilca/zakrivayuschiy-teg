@@ -1,1 +1,12 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+    --themes-background: rgba(255, 255, 255, 1);
+    --themes-main-color: rgba(0, 0, 0, 1);/*акцентный*/
+    --heart-color: rgba(255, 0, 0, 1);
+    --background-image: url(../svg/pattern-light.svg);
+    --font-family-accent: "PressStart2P", sans-serif;
+    --font-family-text: "Inter", sans-serif;
+    --font-weight-bold: 700;
+    --font-weight-normal: 400;
+    --adaptive-gap: 25px;
+}
