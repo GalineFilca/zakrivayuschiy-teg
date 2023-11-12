@@ -261,26 +261,6 @@
   cursor: pointer;
 }
 
-.like-icon:hover .core {
-  fill: var(--themes-main-color, #000);
-  transition: fill 0.3s linear;
-}
-
-.like-icon .core {
-  fill: var(--themes-background, #fff);
-  transition: fill 0.3s 0.03s linear;
-}
-
-.like-icon:hover .main-body {
-  fill: var(--themes-main-color, #000);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon .main-body {
-  fill: var(--themes-background, #fff);
-  transition: fill 0.3s linear;
-}
-
 .card__like-button {
   display: flex;
   flex-direction: row;

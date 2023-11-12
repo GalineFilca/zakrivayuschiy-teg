@@ -23,6 +23,26 @@
   }
 }
 
+.like-icon:hover .core {
+  fill: var(--themes-main-color, #000);
+  transition: fill 0.3s linear;
+}
+
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--themes-main-color, #000);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
 .like-icon:active .core {
   fill: var(--heart-color, #f00);
   transition: fill 0.3s linear;
@@ -50,11 +70,11 @@
 
 @keyframes heart {
   from {
-    transform: scale(1);
+    scale: 1;
   }
 
   to {
-    transform: scale(1.5);
+    scale: 1.5;
   }
 }
 
