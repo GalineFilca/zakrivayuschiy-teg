@@ -20,11 +20,12 @@
   font-variation-settings: "wght" var(--font-weight-normal, 400);
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  background: var(--themes-background, #fff);
-  background-image: var(--background-image);
-  background-attachment: fixed;
-  background-repeat: repeat;
-  background-size: 4px;
+  /*background: var(--themes-background, #fff);*/
+  background: var(--background-image) repeat fixed,
+    var(--themes-background, #fff);
+  /*background-attachment: fixed;*/
+  /*background-repeat: repeat;
+  background-size: 4px;*/
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,7 +55,7 @@
 }
 
 .header__logo {
-  font-family: var(--font-family-accent, "PressStart2P", sans-serif);
+  font-family: var(--font-family-accent, "PressStart2P", fantasy);
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   font-style: normal;
   font-weight: var(--font-weight-normal, 400);
@@ -63,7 +64,7 @@
 }
 
 .header__title {
-  font-family: var(--font-family-accent, "PressStart2P", sans-serif);
+  font-family: var(--font-family-accent, "PressStart2P", fantasy);
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   font-style: normal;
   font-weight: var(--font-weight-normal, 400);
@@ -85,7 +86,7 @@
 }
 
 .theme-menu__item {
-  font-family: var(--font-family-accent, "PressStart2P", sans-serif);
+  font-family: var(--font-family-accent, "PressStart2P", fantasy);
   font-size: 14px;
   font-style: normal;
   font-weight: var(--font-weight-normal, 400);
@@ -110,7 +111,7 @@
   position: absolute;
   content: "▶";
   color: var(--themes-main-color, #000);
-  font-family: var(--font-family-accent, "PressStart2P", sans-serif);
+  font-family: var(--font-family-accent, "PressStart2P", fantasy);
   font-size: 14px;
   font-style: normal;
   font-weight: var(--font-weight-normal, 400);
@@ -279,7 +280,6 @@
 }
 
 .card__like-button:focus-visible {
-  outline: 2px solid var(--themes-main-color, #000);
   box-shadow: 2px 2px 0px 0px var(--themes-main-color, #000);
   transition: box-shadow 0.3s ease;
 }
@@ -312,8 +312,11 @@
 }
 
 .button__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: currentColor;
-  font-family: var(--font-family-accent, "PressStart2P", sans-serif);
+  font-family: var(--font-family-accent, "PressStart2P", fantasy);
   font-size: 14px;
   font-style: normal;
   font-weight: var(--font-weight-normal, 400);
@@ -327,11 +330,10 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  background-color: var(--themes-background, #fff);
 }
 
 .section__button {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   color: var(--themes-main-color, #000);
   padding: 15px 20px;
@@ -341,10 +343,10 @@
   gap: 8px;
   border: 2px solid var(--themes-main-color, #000);
   background: var(--themes-background, #fff);
-  margin-block-start: 48px;
+  margin-block-start: 50px;
   margin-block-end: 102px;
-  margin-inline-start: 35px;
-  margin-inline-end: 35px;
+  margin-inline-start: 36px;
+  margin-inline-end: 36px;
   position: relative;
 }
 
@@ -353,7 +355,6 @@
 }
 
 .section__button:focus-visible {
-  outline: 2px solid var(--themes-main-color, #000);
   box-shadow: 2px 2px 0px 0px var(--themes-main-color, #000);
   transition: box-shadow 0.3s ease;
 }
@@ -404,5 +405,10 @@
 
   .section__button {
     flex-direction: row;
+    padding: 14px 20px;
+  }
+
+  .floppy-icon {
+    height: 22px;
   }
 }
