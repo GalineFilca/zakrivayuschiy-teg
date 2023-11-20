@@ -20,12 +20,11 @@
   font-variation-settings: "wght" var(--font-weight-normal, 400);
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  /*background: var(--themes-background, #fff);*/
-  background: var(--background-image) repeat fixed,
-    var(--themes-background, #fff);
-  /*background-attachment: fixed;*/
-  /*background-repeat: repeat;
-  background-size: 4px;*/
+  background: var(--themes-background, #fff);
+  background: var(--background-image);
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -160,6 +159,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  gap: 57px;
 }
 
 .content__section-card {
@@ -196,12 +196,67 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  border-left: 2px solid var(--themes-main-color, #000);
+  border-right: 2px solid var(--themes-main-color, #000);
+  background-color: var(--themes-background, #fff);
+  position: relative;
 }
 
 .card__image {
-  border-left: 2px solid var(--themes-main-color, #000);
-  border-right: 2px solid var(--themes-main-color, #000);
   width: 100%;
+}
+
+.filter_saturate {
+  filter: saturate(20%);
+}
+
+.filter_brightness-saturate {
+  filter: brightness(150%);
+  filter: saturate(300%);
+}
+.filter_hue-rotate {
+  filter: hue-rotate(390deg);
+}
+
+.filter_contrast-invert {
+  filter: contrast(60%) invert(100%);
+}
+
+.filter_sepia {
+  filter: sepia(90%);
+}
+
+.filter_blur {
+  filter: blur(0.6rem);
+}
+
+.filter_hue-rotate-contrast {
+  filter: hue-rotate(100deg) contrast(60%);
+}
+
+.card__label-watermark {
+  color: var(--themes-main-color, #000);
+  font-family: var(--font-family-accent, "PressStart2P", fantasy);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: var(--font-weight-normal, 400);
+  line-height: normal;
+  text-transform: uppercase;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  position: absolute;
+  inset-block-start: 25px;
+  inset-inline-end: 25px;
+  text-shadow: 0 0 1px var(--text-shadow-color, #fff);
+}
+
+@supports (text-stroke: 1px var(--text-shadow-color)) or
+  (-webkit-text-stroke: 1px var(--text-shadow-color)) {
+  .card__label-watermark {
+    -webkit-text-stroke: 1px var(--text-shadow-color, #fff);
+    text-stroke: 1px var(--text-shadow-color, #fff);
+    text-shadow: none;
+  }
 }
 
 .content__card_text-button {
@@ -271,8 +326,9 @@
   justify-content: center;
   align-items: center;
   border: 2px solid var(--themes-main-color, #000);
-  background: var(--themes-background, #fff);
+  background-color: var(--themes-background, #fff);
   position: relative;
+  color: var(--text-color-difference, #fff);
 }
 
 .card__like-button:focus {
@@ -285,7 +341,7 @@
 }
 
 .card__like-button:hover {
-  color: var(--themes-background, #fff);
+  color: var(--text-color-difference, #fff);
   transition: color 1s ease;
   cursor: pointer;
 }
@@ -297,10 +353,11 @@
   inset-block-end: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--themes-main-color, #000);
+  background-color: var(--background-color-difference, rgba(0, 0, 0, 1));
   transition: transform 0.5s ease-in-out;
   transform-origin: left center;
   transform: scaleX(0);
+  mix-blend-mode: difference;
 }
 
 .card__like-button:hover::after {
@@ -323,6 +380,7 @@
   line-height: 90%;
   position: relative;
   z-index: 1;
+  mix-blend-mode: difference;
 }
 
 .content__section-button {
@@ -335,7 +393,7 @@
 .section__button {
   display: inline-flex;
   flex-wrap: wrap;
-  color: var(--themes-main-color, #000);
+  color: var(--text-color-difference, #fff);
   padding: 15px 20px;
   flex-direction: column;
   justify-content: center;
@@ -360,7 +418,7 @@
 }
 
 .section__button:hover {
-  color: var(--themes-background, #fff);
+  color: var(--text-color-difference, #fff);
   transition: color 1s ease;
   cursor: pointer;
 }
@@ -372,10 +430,11 @@
   inset-block-end: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--themes-main-color, #000);
+  background-color: var(--background-color-difference, #000);
   transition: transform 0.5s ease-in-out;
   transform-origin: left center;
   transform: scaleX(0);
+  mix-blend-mode: difference;
 }
 
 .section__button:hover::after {
@@ -388,6 +447,110 @@
   fill: currentColor;
   position: relative;
   z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.content__dialog {
+  display: grid;
+  position: fixed;
+  inset: 0;
+  min-inline-size: 341px;
+  min-block-size: 195px;
+  max-inline-size: 357px;
+  max-block-size: 193px;
+  inline-size: 80%;
+  padding: 30px 40px;
+  border: 2px solid var(--themes-main-color, #000);
+  background: var(--themes-background, #fff);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.content__dialog:not([open]) {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.content__dialog::backdrop {
+  opacity: 0.75;
+  background: var(--themes-main-color, #000);
+}
+
+.content__form {
+  background: var(--themes-background, #fff);
+}
+
+.content__form_icon-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: row;
+  margin-block-end: 30px;
+}
+
+.form__floppy-icon {
+  inline-size: 39px;
+  block-size: 39px;
+  fill: currentColor;
+  position: relative;
+  z-index: 1;
+}
+
+.form__text {
+  color: var(--themes-main-color, #000);
+  font-family: var(--font-family-accent, "PressStart2P", fantasy);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: var(--font-weight-normal, 400);
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.content__dialog-button {
+  display: flex;
+  width: 257px;
+  height: 38px;
+  padding: 9px 17px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border: 2px solid var(--themes-main-color, #000);
+  background: var(--themes-background, #fff);
+  color: var(--text-color-difference, #fff);
+  position: relative;
+}
+
+.content__dialog-button:focus {
+  outline: none;
+}
+
+.content__dialog-button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--themes-main-color, #000);
+  transition: box-shadow 0.3s ease;
+}
+
+.content__dialog-button:hover {
+  color: var(--text-color-difference, #fff);
+  transition: color 1s ease;
+  cursor: pointer;
+}
+
+.content__dialog-button::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-end: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color-difference, #000);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: left center;
+  transform: scaleX(0);
+  mix-blend-mode: difference;
+}
+
+.content__dialog-button:hover::after {
+  transform: scaleX(1);
 }
 
 @media (width >= 375px) {
