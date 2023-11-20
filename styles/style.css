@@ -20,8 +20,8 @@
   font-variation-settings: "wght" var(--font-weight-normal, 400);
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  background: var(--themes-background, #fff);
-  background: var(--background-image);
+  background-color: var(--themes-background, #fff);
+  background-image: var(--background-image);
   background-attachment: fixed;
   background-repeat: repeat;
   background-size: cover;
@@ -211,8 +211,7 @@
 }
 
 .filter_brightness-saturate {
-  filter: brightness(150%);
-  filter: saturate(300%);
+  filter: brightness(150%) saturate(300%);
 }
 .filter_hue-rotate {
   filter: hue-rotate(390deg);
@@ -494,6 +493,7 @@
   fill: currentColor;
   position: relative;
   z-index: 1;
+  margin: 0;
 }
 
 .form__text {
