@@ -9,24 +9,42 @@
   --themes-background: rgba(0, 0, 0, 1);
   --themes-main-color: rgba(0, 204, 20, 1); /*акцентный*/
   --heart-color: rgba(255, 0, 0, 1);
-  --background-image: url(../svg/pattern-dark.svg);
+  --background-image: repeating-linear-gradient(
+      to left,
+      rgba(0, 0, 0, 1) 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(rgba(0, 0, 0, 1) 0 2px, transparent 2px 4px),
+    linear-gradient(rgba(0, 127, 12, 1) 0.01%, rgba(0, 67, 6, 1));
   --font-family-accent: "PressStart2P", sans-serif;
   --font-family-text: "Inter", sans-serif;
   --font-weight-bold: 785;
   --font-weight-normal: 465;
   --adaptive-gap: 25px;
+  --text-shadow-color: var(--themes-background, rgba(0, 0, 0, 1));
+  --text-color-difference: rgba(0, 204, 20, 1);
+  --background-color-difference: rgba(0, 204, 20, 1);
 }
 
 .theme-light {
   --themes-background: rgba(255, 255, 255, 1);
   --themes-main-color: rgba(0, 0, 0, 1); /*акцентный*/
   --heart-color: rgba(255, 0, 0, 1);
-  --background-image: url(/svg/pattern-light.svg);
+  --background-image: repeating-linear-gradient(
+      to left,
+      rgba(211, 211, 211, 1) 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(rgba(211, 211, 211, 1) 0 2px, transparent 2px 4px),
+    linear-gradient(rgba(231, 231, 231, 1) 0.01%, rgba(26, 26, 26, 1));
   --font-family-accent: "PressStart2P", sans-serif;
   --font-family-text: "Inter", sans-serif;
   --font-weight-bold: 700;
   --font-weight-normal: 400;
   --adaptive-gap: 25px;
+  --text-shadow-color: var(--themes-background, rgba(255, 255, 255, 1));
+  --text-color-difference: rgba(255, 255, 255, 1);
+  --background-color-difference: rgba(255, 255, 255, 1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,11 +52,20 @@
     --themes-background: rgba(0, 0, 0, 1);
     --themes-main-color: rgba(0, 204, 20, 1); /*акцентный*/
     --heart-color: rgba(255, 0, 0, 1);
-    --background-image: url(../svg/pattern-dark.svg);
+    --background-image: repeating-linear-gradient(
+      to left,
+      rgba(0, 0, 0, 1) 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(rgba(0, 0, 0, 1) 0 2px, transparent 2px 4px),
+    linear-gradient(rgba(0, 127, 12, 1) 0.01%, rgba(0, 67, 6, 1));
     --font-family-accent: "PressStart2P", sans-serif;
     --font-family-text: "Inter", sans-serif;
     --font-weight-bold: 785;
     --font-weight-normal: 465;
     --adaptive-gap: 25px;
+    --text-shadow-color: var(--themes-background, rgba(0, 0, 0, 1));
+    --text-color-difference: rgba(0, 204, 20, 1);
+    --background-color-difference: rgba(0, 204, 20, 1);
   }
 }
